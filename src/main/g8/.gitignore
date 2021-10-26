@@ -4,6 +4,9 @@
 # Any hidden file or folder
 .*
 .*/
+!.gitignore
+!.dockerignore
+!.scalafmt.conf
 
 # metals
 project/metals.sbt
