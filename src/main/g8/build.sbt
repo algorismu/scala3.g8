@@ -9,9 +9,9 @@ lazy val `$name;format="norm"$` =
 libraryDependencies ++= Seq(
   $if (http4s.truthy)$
     ,
-    "org.http4s" %% "http4s-ember-client" % http4sVersion,
-    "org.http4s" %% "http4s-ember-server" % http4sVersion,
-    "org.http4s" %% "http4s-dsl"          % http4sVersion,
+    "org.http4s" %% "http4s-ember-client" % $http4s_version$,
+    "org.http4s" %% "http4s-ember-server" % $http4s_version$,
+    "org.http4s" %% "http4s-dsl"          % $http4s_version$,
   $endif$
 
   "com.disneystreaming" %% "weaver-cats" % "$weaver_version$" % Test,
