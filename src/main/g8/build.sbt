@@ -7,6 +7,15 @@ lazy val `$name;format="norm"$` =
     .settings(name := "$name$")
 
 libraryDependencies ++= Seq(
-  "org.scalameta" %% "munit" % "0.7.29" % Test,
-  "org.scalacheck" %% "scalacheck" % "1.17.0" % Test
+  $if (http4s.truthy)$
+    ,
+    "org.http4s" %% "http4s-ember-client" % http4sVersion,
+    "org.http4s" %% "http4s-ember-server" % http4sVersion,
+    "org.http4s" %% "http4s-dsl"          % http4sVersion,
+  $endif$
+
+  "com.disneystreaming" %% "weaver-cats" % "$weaver_version$" % Test,
+  "com.disneystreaming" %% "weaver-scalacheck" % "$weaver_version$" % Test
  )
+
+testFrameworks += new TestFramework("weaver.framework.CatsEffect")
